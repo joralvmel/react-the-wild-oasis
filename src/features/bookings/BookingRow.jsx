@@ -16,6 +16,7 @@ import { formatCurrency } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
 import { format, isToday } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import { useCheckout } from "../check-in-out/useCheckout.js}";
 
 const Cabin = styled.div`
   font-size: 1.6rem;
@@ -59,6 +60,7 @@ function BookingRow({
   },
 }) {
   const navigate = useNavigate();
+  const { checkout, isCheckingOut } = useCheckout();
 
   const statusToTagName = {
     unconfirmed: "blue",
@@ -114,9 +116,9 @@ function BookingRow({
 
             {status === "checked-in" && (
               <Menus.Button
-              // icon={<HiArrowUpOnSquare />}
-              // onClick={() => checkout(bookingId)}
-              // disabled={isCheckingOut}
+                icon={<HiArrowUpOnSquare />}
+                onClick={() => checkout(bookingId)}
+                disabled={isCheckingOut}
               >
                 Check out
               </Menus.Button>

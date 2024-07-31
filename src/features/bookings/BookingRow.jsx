@@ -17,6 +17,8 @@ import { formatDistanceFromNow } from "../../utils/helpers";
 import { format, isToday } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { useCheckout } from "../check-in-out/useCheckout.js}";
+import { useDeleteBooking } from "./useDeleteBooking";
+import ConfirmDelete from "../../ui/ConfirmDelete";
 
 const Cabin = styled.div`
   font-size: 1.6rem;
@@ -59,6 +61,7 @@ function BookingRow({
     cabins: { name: cabinName },
   },
 }) {
+  const { isDeleting, deleteBooking } = useDeleteBooking();
   const navigate = useNavigate();
   const { checkout, isCheckingOut } = useCheckout();
 
@@ -69,7 +72,7 @@ function BookingRow({
   };
 
   return (
-    <Table.Row role="row">
+    <Table.Row>
       <Cabin>{cabinName}</Cabin>
 
       <Stacked>
@@ -131,11 +134,11 @@ function BookingRow({
         </Menus.Menu>
 
         <Modal.Window name="delete">
-          {/* <ConfirmDelete
+          <ConfirmDelete
             resourceName="booking"
             disabled={isDeleting}
             onConfirm={() => deleteBooking(bookingId)}
-          /> */}
+          />
         </Modal.Window>
       </Modal>
     </Table.Row>

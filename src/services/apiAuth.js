@@ -25,8 +25,6 @@ export async function login({ email, password }) {
 
   if (error) throw new Error("Login failed");
 
-  console.log(data);
-
   return data;
 }
 

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import {
-  HiPencil,
   HiTrash,
   HiEye,
   HiArrowUpOnSquare,

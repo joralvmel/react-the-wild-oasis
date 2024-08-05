@@ -16,7 +16,7 @@ import { formatCurrency } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
 import { format, isToday } from "date-fns";
 import { useNavigate } from "react-router-dom";
-import { useCheckout } from "../check-in-out/useCheckout.js}";
+import { useCheckout } from "../check-in-out/useCheckout.js";
 import { useDeleteBooking } from "./useDeleteBooking";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 
